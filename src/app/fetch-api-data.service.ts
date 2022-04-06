@@ -162,7 +162,6 @@ export class FetchApiDataService {
     } 
     else {
       console.error(
-        // JSON.stringify(error.error.errors[0].msg) +
         `Error Status code ${error.status}, ` +
         `Error body is: ${error.error.message || error.error }`);
     }
