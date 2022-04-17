@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-movie-card',
@@ -10,12 +10,11 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 export class MovieCardComponent implements OnInit {
 
   movies: any[] = []; 
-  base64Image: any[] = [];
   
   constructor(
     public fetchMovies: FetchApiDataService,
     private sanitize: DomSanitizer
-    ) { }
+  ){}
 
   ngOnInit(): void {
     this.getMovies();
@@ -24,13 +23,24 @@ export class MovieCardComponent implements OnInit {
   getMovies(): void {
     this.fetchMovies.getAllMovies().subscribe((response: any)=>{
       this.movies = response;
-      this.movies.forEach(m=>{
-        m.imageCode2 = this.sanitize.bypassSecurityTrustUrl(`data:image/png;base64, ${m.imageCode}`)
-      });
-      console.log(this.movies);
       return this.movies;
     });
   }
-  
+
+  sanitizeResource(movie: any){
+    return this.sanitize.bypassSecurityTrustUrl(`data:image/png;base64, ${movie.imageCode}`);
+  }
+
+  scrollLeft(){
+    var container = document.getElementById('card-container');
+    if(!container) return;
+    container.scrollLeft += -220;
+  }
+
+  scrollRight(){
+    var container = document.getElementById('card-container');
+    if(!container) return;
+    container.scrollLeft += 220;
+  }
 
 }

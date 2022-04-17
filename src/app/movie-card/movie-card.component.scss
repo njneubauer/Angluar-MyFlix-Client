@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    margin: auto 5%;
+    margin-top: 5%;
+}
+
+#card-container{
+    width: 100%;
+    overflow: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+// movie buttons
+.mat-card-subtitle.mat-card-subtitle {
+    margin-bottom: 5px;
+}
+
+.mat-raised-button.mat-raised-button {
+    margin: 5px 8px 5px 8px;
+}
+
+.mat-card-actions:not(.mat-card-actions-align-end) .mat-button:first-child, .mat-card-actions:not(.mat-card-actions-align-end) .mat-raised-button:first-child, .mat-card-actions:not(.mat-card-actions-align-end) .mat-stroked-button:first-child {
+    margin: 5px 8px 5px 8px;
+}
+
+@media only screen and (max-width: 428px){
+    #btn-scroll-right {
+        display: none;
+    }
+
+    #btn-scroll-left {
+        display: none;
+    }
+
+}
