@@ -1,1 +1,11 @@
-<p>genre-card works!</p>
+<mat-card *ngFor="let genre of data.genreInfo">
+    <mat-card-title>{{ genre.name }}</mat-card-title>
+    <mat-dialog-content>{{ genre.description }}</mat-dialog-content>
+</mat-card>
+<button
+    mat-raised-button
+    mat-dialog-close
+    color="primary"
+>
+    Close
+</button>
