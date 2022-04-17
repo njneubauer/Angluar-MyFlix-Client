@@ -19,6 +19,9 @@ export class UserRegistrationFormComponent implements OnInit {
 
   @Input() userData = { username: '', password: '', email: '', birthday: '' };
   
+  display = "display: none;"
+  loadingMsg = '';
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
@@ -29,15 +32,19 @@ export class UserRegistrationFormComponent implements OnInit {
   
   // function responsible for sending the form inputs to the backend
   registerUser(): void {
+    this.loadingMsg = "Attempting to Register User";
+    this.display = "display: block;";
+
     this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
-      // succesful login logic will be here
-      console.log(JSON.stringify(result));
+      this.loadingMsg = "";
+      this.display = "display: none;"
       this.dialogRef.close(); // This will close the modal on success!
       this.snackBar.open('Account sucessfully created!', 'OK', {
         duration: 2000
       });
     }, (result) => {
-      console.log(JSON.stringify(result));
+      this.loadingMsg = "";
+      this.display = "display: none;"
       this.snackBar.open(result, 'OK', {
         duration: 2000
       });
