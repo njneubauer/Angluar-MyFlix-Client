@@ -24,6 +24,8 @@
                 required
                 >
             </mat-form-field>
+            <p>{{ loadingMsg }}</p>
+            <app-progress-bar [style]="display"></app-progress-bar>
         </form>
     </mat-card-content>
     <mat-card-actions>
