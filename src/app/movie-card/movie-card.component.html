@@ -20,18 +20,30 @@
                 <button
                     mat-raised-button
                     color="primary"
+                    (click)="
+                    openGenreDialog(
+                        movie.genreNames
+                    )"
                 >
                     Genre
                 </button>
                 <button
                     mat-raised-button
                     color="primary"
+                    (click)="openDirectorDialog(
+                        movie.directorInfo
+                    )"
                 >
                     Director
                 </button>
                 <button
                     mat-raised-button
                     color="primary"
+                    (click)="openSynopsisDialog( 
+                        movie.title,
+                        movie.plot,
+                        movie.year
+                    )"
                 >
                     Synopsis
                 </button>

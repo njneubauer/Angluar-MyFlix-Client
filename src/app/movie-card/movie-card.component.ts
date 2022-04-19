@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material/dialog';
+import { GenreCardComponent } from '../genre-card/genre-card.component';
+import { DirectorCardComponent } from '../director-card/director-card.component';
+import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -13,7 +17,8 @@ export class MovieCardComponent implements OnInit {
   
   constructor(
     public fetchMovies: FetchApiDataService,
-    private sanitize: DomSanitizer
+    private sanitize: DomSanitizer,
+    public dialog: MatDialog
   ){}
 
   ngOnInit(): void {
@@ -23,6 +28,7 @@ export class MovieCardComponent implements OnInit {
   getMovies(): void {
     this.fetchMovies.getAllMovies().subscribe((response: any)=>{
       this.movies = response;
+      console.log(this.movies);
       return this.movies;
     });
   }
@@ -41,6 +47,28 @@ export class MovieCardComponent implements OnInit {
     var container = document.getElementById('card-container');
     if(!container) return;
     container.scrollLeft += 220;
+  }
+
+  openGenreDialog( genreInfo: Object ): void {
+    this.dialog.open(GenreCardComponent, {
+      data: { genreInfo },
+      width: '500px'
+    });
+  }
+
+  openDirectorDialog( directorInfo: Object ): void {
+    this.dialog.open(DirectorCardComponent, {
+      data: { directorInfo },
+      width: '500px'
+    });
+  }
+
+  openSynopsisDialog( movieTitle: string, moviePlot: string, movieYear: string ): void {
+    console.log(movieTitle + ' ' + moviePlot + ' '+ movieYear);
+    this.dialog.open(SynopsisCardComponent, {
+      data: { movieTitle, moviePlot, movieYear },
+      width: '500px'
+    });
   }
 
 }
