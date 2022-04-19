@@ -1,1 +1,12 @@
-<p>director-card works!</p>
+<mat-card *ngFor="let director of data.directorInfo">
+    <mat-card-title>{{ director.name }}</mat-card-title>
+    <mat-card-subtitle>Birth year:{{ director.birthday }}</mat-card-subtitle>
+    <mat-dialog-content>{{ director.bio }}</mat-dialog-content>
+</mat-card>
+<button
+    mat-raised-button
+    mat-dialog-close
+    color="primary"
+>
+    Close
+</button>
