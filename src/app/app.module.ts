@@ -11,6 +11,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatMenuModule } from '@angular/material/menu'
+import { MatDividerModule } from '@angular/material/divider';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,11 +30,12 @@ import { SynopsisCardComponent } from './synopsis-card/synopsis-card.component';
 import { GenreCardComponent } from './genre-card/genre-card.component';
 import { DirectorCardComponent } from './director-card/director-card.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  { path: 'profile', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -62,6 +67,10 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     FormsModule,
     MatProgressBarModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatMenuModule,
+    MatDividerModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],
