@@ -15,11 +15,22 @@
     font-size: 26px;
 }
 
-// movie buttons
+.mat-card-title {
+    padding-right: 8px;
+}
+
 .mat-card-subtitle.mat-card-subtitle {
     margin-bottom: 5px;
 }
 
+.mat-icon-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: purple;
+}
+
+// movie buttons spacing
 .mat-raised-button.mat-raised-button {
     margin: 5px 8px 5px 8px;
 }
@@ -28,6 +39,7 @@
     margin: 5px 8px 5px 8px;
 }
 
+// scroll buttons hide for mobile screen
 @media only screen and (max-width: 428px){
     #btn-scroll-right {
         display: none;

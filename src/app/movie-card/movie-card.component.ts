@@ -14,23 +14,55 @@ import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component'
 export class MovieCardComponent implements OnInit {
 
   movies: any[] = []; 
-  
+  favoriteMovies: any[] = [];
+
   constructor(
-    public fetchMovies: FetchApiDataService,
+    public fetchApiData: FetchApiDataService,
     private sanitize: DomSanitizer,
     public dialog: MatDialog
   ){}
 
   ngOnInit(): void {
     this.getMovies();
+    this.getFavoriteMovies();
   }
 
   getMovies(): void {
-    this.fetchMovies.getAllMovies().subscribe((response: any)=>{
+    this.fetchApiData.getAllMovies().subscribe((response: any)=>{
       this.movies = response;
-      console.log(this.movies);
       return this.movies;
     });
+  }
+
+  getFavoriteMovies():void {
+    this.fetchApiData.getUser().subscribe((response: any)=>{
+      this.favoriteMovies = response.favoriteMovies
+      console.log(response);
+    });
+  }
+
+  addToFavorites(movieTitle: string):void{
+    this.fetchApiData.addFavoriteMovie(movieTitle).subscribe((response)=>{ 
+      this.ngOnInit();
+    });
+    this.getFavoriteMovies();
+  }
+
+  deleteFromFavorites(movieTitle: string){
+    this.fetchApiData.deleteFavoriteMovie(movieTitle).subscribe((response)=>{ 
+      this.ngOnInit();
+    });
+    this.getFavoriteMovies();
+  }
+
+  isFavorite(movieTitle: string): boolean {
+    return this.favoriteMovies.includes(movieTitle);
+  }
+
+  toggleFavorite(movie: any): void {
+    this.isFavorite(movie._id)
+      ? this.deleteFromFavorites(movie.title)
+      : this.addToFavorites(movie.title);
   }
 
   sanitizeResource(movie: any){
@@ -69,5 +101,5 @@ export class MovieCardComponent implements OnInit {
       width: '500px'
     });
   }
-
+  
 }
