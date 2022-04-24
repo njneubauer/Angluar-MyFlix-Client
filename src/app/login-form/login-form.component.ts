@@ -36,15 +36,12 @@ export class LoginFormComponent implements OnInit {
       // Router Logic
       this.router.navigate(['movies']);
       localStorage.setItem('token', result.token);
-      localStorage.setItem('user', result.user.username);
+      localStorage.setItem('username', result.user.username);
       // progress bar hidden
       this.loadingMsg = ""
       this.display = "display: none;";
       // result modal
       this.dialogRef.close(); // close modal on success
-      this.snackBar.open('Successful Login', 'OK',{
-        duration: 2000
-      });
     }, (result)=>{
       // progress bar hidden
       this.loadingMsg = ""
