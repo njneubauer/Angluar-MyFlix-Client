@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
 
   menuItems = [
     {label: 'Movies'},
+    {label: 'Favorites'},
     {label: 'Profile'},
     {label: 'Logout', icon: 'login'},
   ]
@@ -25,14 +26,17 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  capitalizeFirstLetter(string: any){
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  // capitalizeFirstLetter(string: any){
+  //   return string.charAt(0).toUpperCase() + string.slice(1);
+  // }
 
   toLink(pageLabel: string){
     switch(pageLabel){
       case 'Movies':
         this.router.navigate(['movies']);
+        break
+      case 'Favorites':
+        this.router.navigate(['favorites']);
         break
       case 'Profile':
         this.router.navigate(['profile']);
