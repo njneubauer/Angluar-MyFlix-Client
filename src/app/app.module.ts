@@ -31,6 +31,7 @@ import { GenreCardComponent } from './genre-card/genre-card.component';
 import { DirectorCardComponent } from './director-card/director-card.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { EditUserInfoComponent } from './edit-user-info/edit-user-info.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -51,7 +52,8 @@ const appRoutes: Routes = [
     SynopsisCardComponent,
     GenreCardComponent,
     DirectorCardComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    EditUserInfoComponent
   ],
   imports: [
     BrowserModule,
