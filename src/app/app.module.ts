@@ -32,10 +32,12 @@ import { DirectorCardComponent } from './director-card/director-card.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { EditUserInfoComponent } from './edit-user-info/edit-user-info.component';
+import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  { path: 'favorites', component: FavoriteMoviesComponent },
   { path: 'profile', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
@@ -53,7 +55,8 @@ const appRoutes: Routes = [
     GenreCardComponent,
     DirectorCardComponent,
     ProgressBarComponent,
-    EditUserInfoComponent
+    EditUserInfoComponent,
+    FavoriteMoviesComponent
   ],
   imports: [
     BrowserModule,
