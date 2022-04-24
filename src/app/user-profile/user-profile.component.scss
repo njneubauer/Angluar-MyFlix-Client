@@ -1,0 +1,26 @@
+p {
+    margin: 0;
+}
+
+.profile {
+    display: flex;
+    margin: 50px auto;    
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    color: #000;
+}
+
+.mat-input-element:disabled {
+    color: grey;
+}
+
+.mat-form-field-infix {
+    width: 800px !important;
+}
+
+app-progress-bar {
+    width: 50%; 
+    margin: auto; 
+    text-align: center;
+}

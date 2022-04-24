@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<h2 style="text-align: center; margin-top: 40px;">{{ loadingMsg }}</h2>
+<app-progress-bar [style]="display"></app-progress-bar>
+<div class="profile" [style]="displayInfo">
+    <h1 style="text-align: center;">User Information</h1>
+    <div>
+        <span style="padding-right: 20px;">Username</span>
+        <mat-form-field>
+            <input 
+            matInput
+            [(ngModel)]="user.username"
+            name="Username"
+            disabled
+            >
+        </mat-form-field>
+    </div>
+    <div>
+        <p>Email</p>
+        <mat-form-field>
+            <input
+            matInput
+            [(ngModel)]="user.email"
+            name="Email"
+            disabled
+            >
+        </mat-form-field>
+    </div>
+    <div>
+        <p>Birthday</p>
+        <mat-form-field>
+            <input
+            matInput
+            [ngModel]="stringToDate(user.birthday)"  
+            name="Birthday"
+            disabled
+            >
+        </mat-form-field>
+    </div>
+    <button 
+        mat-raised-button 
+        color="primary"
+        (click)="openEditUserDialog()"
+    >Edit</button>
+</div>
+<div>
+    
+</div>
