@@ -1,0 +1,46 @@
+#card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.mat-card {
+    width: 200px;
+    margin: 2rem 1rem;
+    padding-bottom: 1.5rem;
+}
+
+.mat-card-header.mat-card-header {
+    margin-left: -10px;
+}
+
+.mat-card-title {
+    padding-right: 8px;
+}
+
+.mat-card-subtitle.mat-card-subtitle {
+    margin-bottom: 5px;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-icon-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: purple;
+}
+
+// movie buttons spacing
+.mat-raised-button.mat-raised-button {
+    margin: 5px 8px 5px 8px;
+}
+
+.mat-card-actions:not(.mat-card-actions-align-end) .mat-button:first-child, .mat-card-actions:not(.mat-card-actions-align-end) .mat-raised-button:first-child, .mat-card-actions:not(.mat-card-actions-align-end) .mat-stroked-button:first-child {
+    margin: 5px 8px 5px 8px;
+}
