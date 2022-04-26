@@ -1,6 +1,11 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div id="card-container">
+        <h1 style="margin-top: 50px; color: grey;">
+            {{ emptyMovieListMsg1 }}
+            <mat-icon>{{ favoriteIcon }}</mat-icon>
+            {{ emptyMovieListMsg2 }}
+        </h1>
         <mat-card *ngFor="let movie of movies;">
             <mat-card-header>
             <mat-card-title>{{ movie.title }}</mat-card-title>

@@ -15,6 +15,9 @@ export class FavoriteMoviesComponent implements OnInit {
 
   movies: any[] = []; 
   favoriteMovies: any[] = [];
+  emptyMovieListMsg1 = '';
+  emptyMovieListMsg2 = '';
+  favoriteIcon = '';
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -39,7 +42,17 @@ export class FavoriteMoviesComponent implements OnInit {
   getFavoriteMovies():void {
     this.fetchApiData.getUser().subscribe((response: any)=>{
       this.favoriteMovies = response.favoriteMovies
-      console.log(response);
+      console.log(this.favoriteMovies);
+      if(this.favoriteMovies.length === 0){
+        this.emptyMovieListMsg1 = 'No movies were'
+        this.emptyMovieListMsg2 = 'yet...'
+        this.favoriteIcon = 'favorite'
+      } 
+      else {
+        this.emptyMovieListMsg1 = '';
+        this.emptyMovieListMsg2 = '';
+        this.favoriteIcon = '';
+      }
     });
   }
 
