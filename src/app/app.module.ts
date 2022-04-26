@@ -55,7 +55,7 @@ const appRoutes: Routes = [
     DirectorCardComponent,
     ProgressBarComponent,
     EditUserInfoComponent,
-    FavoriteMoviesComponent
+    FavoriteMoviesComponent,
   ],
   imports: [
     BrowserModule,
