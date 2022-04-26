@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUserInfoComponent } from '../edit-user-info/edit-user-info.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -18,8 +19,9 @@ export class UserProfileComponent implements OnInit {
   @Input() userData = { username: '', password: '', email: '', birthday: '' }
 
   constructor(
-    public fetch: FetchApiDataService,
-    public dialog: MatDialog,
+    public fetchApi: FetchApiDataService,
+    public dialogRef: MatDialog,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,11 +32,22 @@ export class UserProfileComponent implements OnInit {
     this.display = "display: flex;"
     this.loadingMsg = 'Loading';
     this.displayInfo = "display: none;"
-    this.fetch.getUser().subscribe((response: any)=>{
+    this.fetchApi.getUser().subscribe((response: any)=>{
       this.user = response;
       console.log(this.user);
       return this.user
     });
+  }
+
+  deleteAccount(){
+    const username = localStorage.getItem('username');
+    if(confirm(`Are you sure you want to delete your account ${username}?`)) {
+      this.fetchApi.deleteUser().subscribe((res)=>{
+        console.log(res);
+      });
+      this.router.navigate(['welcome']);
+      localStorage.clear();
+    }
   }
 
   loadingMessage(){
@@ -54,7 +67,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   openEditUserDialog(): void {
-    this.dialog.open(EditUserInfoComponent, {
+    this.dialogRef.open(EditUserInfoComponent, {
       width: '280px'
     });
   }

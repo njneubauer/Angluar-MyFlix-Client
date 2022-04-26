@@ -1,3 +1,7 @@
+button {
+    margin-bottom: 15px;
+}
+
 p {
     margin: 0;
 }
@@ -17,6 +21,10 @@ p {
 
 .mat-form-field-infix {
     width: 800px !important;
+}
+
+.mat-stroked-button:not(.mat-button-disabled) {
+    border-color: rgba(255, 0, 0, 0.411);
 }
 
 app-progress-bar {
