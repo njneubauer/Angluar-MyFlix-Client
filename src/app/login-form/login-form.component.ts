@@ -29,6 +29,12 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+   /**
+   * function responsible for sending the form inputs to the backend
+   * @function registerUser
+   * @param this.userData sends an object to api with user information
+   * @returns user data in json format
+   */
   loginUser(): void {
     this.loadingMsg = "Attempting Login..."
     this.display = "display: block;";

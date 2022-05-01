@@ -16,7 +16,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 
 export class UserRegistrationFormComponent implements OnInit {
-
+  /**
+   * Input values stored within userData variable
+   */
   @Input() userData = { username: '', password: '', email: '', birthday: '' };
   
   display = "display: none;"
@@ -29,8 +31,13 @@ export class UserRegistrationFormComponent implements OnInit {
   ){}
 
   ngOnInit(): void {}
-  
-  // function responsible for sending the form inputs to the backend
+
+  /**
+   * function responsible for sending the form inputs to the backend
+   * @function registerUser
+   * @param this.userData sends an object to api with user information
+   * @returns registered user data in json format
+   */
   registerUser(): void {
     this.loadingMsg = "Attempting to Register User";
     this.display = "display: block;";

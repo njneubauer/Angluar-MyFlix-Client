@@ -25,7 +25,10 @@ export class EditUserInfoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  /**
+   * function to render dialogue to allow user to edit personal information
+   * @param userData user data object passed into fetch function
+   */
   editUserInfo(): void {
     this.loadingMsg = "Attempting to Register User";
     this.display = "display: block;";

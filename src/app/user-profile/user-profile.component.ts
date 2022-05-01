@@ -27,7 +27,10 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.loadingMessage();
   }
-
+  /**
+   * function to fetch user data
+   * @returns user data object
+   */
   getUser():void {
     this.display = "display: flex;"
     this.loadingMsg = 'Loading';
@@ -38,7 +41,9 @@ export class UserProfileComponent implements OnInit {
       return this.user
     });
   }
-
+  /**
+  * function that deletes user account if yes selected on alert. If account is deleted re-routes app to welcome view
+  */
   deleteAccount(){
     const username = localStorage.getItem('username');
     if(confirm(`Are you sure you want to delete your account ${username}?`)) {
@@ -49,14 +54,20 @@ export class UserProfileComponent implements OnInit {
       localStorage.clear();
     }
   }
-
+  /**
+   * loading message while user data is fetched
+   */
   loadingMessage(){
     this.getUser();
       this.display = "display: none;"
       this.loadingMsg = '';
       this.displayInfo = "display: flex;"
   }
-
+ /**
+  * function to format user birthday
+  * @param date 
+  * @returns user birthday mm/dd/yyyy format
+  */
   stringToDate(date: any){
     var rawDate = new Date(date);
     var month = rawDate.getMonth() // 0 based
@@ -65,7 +76,9 @@ export class UserProfileComponent implements OnInit {
     const dateFormat = `${month+1}/${day+1}/${year}`
     return dateFormat;
   }
-
+  /**
+   * function that displays dialog for edit user view. Displays form for user to submit updated information.
+   */
   openEditUserDialog(): void {
     this.dialogRef.open(EditUserInfoComponent, {
       width: '280px'

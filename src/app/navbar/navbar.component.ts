@@ -25,7 +25,10 @@ export class NavbarComponent implements OnInit {
   
   ngOnInit(): void {
   }
-
+/**
+ * function to route links in navbar to the correct view
+ * @param pageLabel string passed into switch statement for route navigation
+ */
   toLink(pageLabel: string){
     switch(pageLabel){
       case 'Movies':
@@ -42,10 +45,6 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['welcome']);
         break
     }
-  }
-
-  toProfile(){
-    this.router.navigate(['profile']);
   }
 
 }
